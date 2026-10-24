@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{PRODUCT_NAME}}</title>
+  <meta name="description" content="{{PRODUCT_DESCRIPTION}}">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{GA_MEASUREMENT_ID}}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{GA_MEASUREMENT_ID}}');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="topo">
+  <div class="wrap">
+    <span class="promo">R$ {{PRICE}} + bônus grátis: {{BONUS_NAME}}</span>
+    <span>Edição <b>{{EDITION}}</b> · dados conferidos</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-txt">
+      <p class="eyebrow">Do canal {{CHANNEL_NAME}}</p>
+      <p class="combo"><b>{{PRODUCT_TYPE}}</b><i>+</i><b>Bônus</b><span>na mesma compra</span></p>
+      <h1>{{HEADLINE_PRIMARY}}<span>{{HEADLINE_SECONDARY}}</span></h1>
+      <p class="sub">{{SUBHEAD}}</p>
+      <p class="desc">{{DESCRIPTION}}</p>
+      <div class="hero-acoes">
+        <a class="btn" id="btn-topo" href="#comprar" data-checkout>Compre agora por R$ {{PRICE}}<small>Acesso imediato à garantia de 7 dias</small></a>
+        <a class="link-sec" href="#conteudo">Veja o conteúdo por dentro</a>
+      </div>
+    </div>
+    <!-- Capa do produto: substitua img/product-cover.png -->
+    <div class="capa-wrap" aria-hidden="true">
+      <div class="capa">
+        <div class="faixa"></div>
+        <div class="capa-corpo">
+          <span class="capa-ed">Edição {{EDITION}} · {{PAGES_COUNT}} páginas</span>
+          <div class="capa-tit">{{PRODUCT_TITLE_SHORT}}<br><span>{{PRODUCT_SUBTITLE}}</span></div>
+          <p class="capa-sub">{{CAP_SUB}}</p>
+          <svg viewBox="0 0 300 110" fill="none">
+            <line x1="0" y1="86" x2="300" y2="86" stroke="{{ACCENT}}" stroke-width="3"/>
+            <line x1="92" y1="86" x2="92" y2="12" stroke="#e9ecee" stroke-width="4"/>
+            <line x1="208" y1="86" x2="208" y2="12" stroke="#e9ecee" stroke-width="4"/>
+            <g stroke="#a9b3bc" stroke-width="1.2">
+              <line x1="92" y1="16" x2="20" y2="86"/><line x1="92" y1="26" x2="40" y2="86"/><line x1="92" y1="36" x2="60" y2="86"/><line x1="92" y1="46" x2="78" y2="86"/>
+              <line x1="92" y1="16" x2="150" y2="86"/><line x1="92" y1="26" x2="136" y2="86"/><line x1="92" y1="36" x2="122" y2="86"/><line x1="92" y1="46" x2="108" y2="86"/>
+              <line x1="208" y1="16" x2="150" y2="86"/><line x1="208" y1="26" x2="164" y2="86"/><line x1="208" y1="36" x2="178" y2="86"/><line x1="208" y1="46" x2="192" y2="86"/>
+              <line x1="208" y1="16" x2="280" y2="86"/><line x1="208" y1="26" x2="260" y2="86"/><line x1="208" y1="36" x2="240" y2="86"/><line x1="208" y1="46" x2="222" y2="86"/>
+            </g>
+            <g stroke="#36404a" stroke-width="1"><line x1="0" y1="96" x2="300" y2="96"/><line x1="20" y1="104" x2="280" y2="104"/></g>
+          </svg>
+          <div class="capa-rod"><span>{{CHANNEL_NAME}}</span><span>{{PRODUCT_TYPE}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="numeros">
+  <div class="wrap">
+    <div class="num"><b>{{ITEMS_COUNT}}</b><span>{{ITEMS_LABEL}}</span></div>
+    <div class="num"><b>{{PARTS_COUNT}}</b><span>{{PARTS_LABEL}}</span></div>
+    <div class="num"><b>{{PAGES_COUNT}}</b><span>Páginas</span></div>
+    <div class="num"><b>{{MAPS_COUNT}}</b><span>{{MAPS_LABEL}}</span></div>
+  </div>
+</div>
+
+<section class="bloco" id="curiosidades">
+  <div class="wrap">
+    <div class="cab">
+      <p class="eyebrow">Você sabia?</p>
+      <h2>{{CURIOSITY_HEADLINE}}</h2>
+      <p>{{CURIOSITY_SUB}}</p>
+    </div>
+    <div class="curio">
+      <!-- Substitua por 6 curiosidades -->
+      <div class="cur"><p>{{CURIOSITY_1}}</p><span class="tranca"><i></i>Resposta no capítulo {{CHAPTER_1}}</span></div>
+      <div class="cur"><p>{{CURIOSITY_2}}</p><span class="tranca"><i></i>Resposta no capítulo {{CHAPTER_2}}</span></div>
+      <div class="cur"><p>{{CURIOSITY_3}}</p><span class="tranca"><i></i>Resposta no capítulo {{CHAPTER_3}}</span></div>
+      <div class="cur"><p>{{CURIOSITY_4}}</p><span class="tranca"><i></i>Resposta no capítulo {{CHAPTER_4}}</span></div>
+      <div class="cur"><p>{{CURIOSITY_5}}</p><span class="tranca"><i></i>Resposta no capítulo {{CHAPTER_5}}</span></div>
+      <div class="cur"><p>{{CURIOSITY_6}}</p><span class="tranca"><i></i>Resposta no capítulo {{CHAPTER_6}}</span></div>
+    </div>
+    <div class="curio-cta">
+      <a class="btn" href="#comprar">Quero as respostas<small>R$ {{PRICE}} — acesso imediato</small></a>
+      <p>E {{ITEMS_COUNT}} {{ITEMS_LABEL_LOWER}} como essas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bloco" id="conteudo" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab">
+      <p class="eyebrow">Veja por dentro</p>
+      <h2>Páginas reais do {{PRODUCT_TYPE}}</h2>
+      <p>{{PREVIEW_SUB}}</p>
+    </div>
+    <div class="carrossel">
+      <button class="seta seta-esq" type="button" aria-label="Página anterior" disabled><svg viewBox="0 0 22 36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18,3 4,18 18,33"/></svg></button>
+      <div class="paginas">
+        <!-- Substitua por screenshots reais -->
+        <figure><img src="img/pagina-1.jpg" alt="Capa do produto" loading="lazy"><figcaption>Capa principal</figcaption></figure>
+        <figure><img src="img/pagina-2.jpg" alt="Conteúdo do produto" loading="lazy"><figcaption>Página de conteúdo</figcaption></figure>
+        <figure><img src="img/pagina-3.jpg" alt="Mapa do produto" loading="lazy"><figcaption>Mapa interativo</figcaption></figure>
+        <figure><img src="img/pagina-4.jpg" alt="Sumário do produto" loading="lazy"><figcaption>Sumário</figcaption></figure>
+      </div>
+      <button class="seta seta-dir" type="button" aria-label="Próxima página"><svg viewBox="0 0 22 36" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,3 18,18 4,33"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<section class="bloco problema">
+  <div class="wrap">
+    <div>
+      <div class="cab">
+        <p class="eyebrow">Por que este {{PRODUCT_TYPE}} existe</p>
+        <h2>{{PROBLEM_HEADLINE}}</h2>
+      </div>
+      <div class="texto">
+        <p>{{PROBLEM_DESC_1}}</p>
+        <p><strong>{{PROBLEM_PIVOT}}</strong></p>
+        <p>{{PROBLEM_DESC_2}}</p>
+      </div>
+    </div>
+    {{TERMOMETER_HTML}}
+  </div>
+</section>
+
+{{BONUS_SECTION}}
+
+{{CONTENT_PREVIEW_SECTION}}
+
+{{EXTRAS_SECTION}}
+
+<section class="bloco oferta-sec" id="comprar">
+  <div class="wrap">
+    <div class="oferta">
+      <div class="faixa"></div>
+      <div class="oferta-corpo">
+        <p class="eyebrow">{{PRODUCT_TITLE_SHORT}} · Edição {{EDITION}}</p>
+        <h2>Você leva <span>{{ITEMS_COUNT}}</span> materiais</h2>
+        <div class="leva">
+          <div class="leva-item"><span class="tag">1 · {{PRODUCT_TYPE}} · {{PAGES_COUNT}} páginas</span><h3>{{PRODUCT_TITLE_SHORT}}</h3><p>{{PRODUCT_BENEFIT_1}}</p></div>
+          <div class="leva-item"><span class="tag">2 · Bônus gratuito · {{BONUS_PAGES}} páginas</span><h3>{{BONUS_NAME}}</h3><p>{{BONUS_BENEFIT}}</p></div>
+        </div>
+        <ul>
+          <li><span>Os dois em PDF, para ler no celular, tablet ou computador</span></li>
+          <li><span>Liberados juntos, na mesma área de membros, logo após o pagamento</span></li>
+        </ul>
+        <div class="cronometro"><span>Preço especial de lançamento · {{PRODUCT_TYPE}} + bônus</span></div>
+        <div class="preco">
+          <div class="valor"><sup>R$</sup>{{PRICE}}</div>
+          <div class="cond">Pagamento único<br>Pix ou cartão<br>Sem assinatura</div>
+        </div>
+        <a class="btn" id="btn-comprar" href="{{KIWIFY_CHECKOUT_URL}}">Comprar agora<small>Acesso imediato após o pagamento</small></a>
+      </div>
+      <div class="garantia">
+        <div class="selo">7<small>DIAS</small></div>
+        <p><strong>Garantia de 7 dias.</strong> Se o {{PRODUCT_TYPE}} não for o que você esperava, peça o reembolso dentro de 7 dias e devolvemos o valor integral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloco">
+  <div class="wrap">
+    <div class="cab">
+      <p class="eyebrow">Dúvidas</p>
+      <h2>Perguntas frequentes</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Já assito o canal. Por que comprar?</summary><p>{{FAQ_1}}</p></details>
+      <details><summary>O bônus é cobrado à parte?</summary><p>Não. O {{BONUS_NAME}} vem junto com o {{PRODUCT_TYPE}}, pelo mesmo valor de R$ {{PRICE}}, e fica disponível na mesma área de membros.</p></details>
+      <details><summary>Como recebo?</summary><p>Logo depois da confirmação do pagamento, você recebe no e-mail usado na compra o acesso à Área de Membros, onde o {{PRODUCT_TYPE}} e o bônus ficam disponíveis para baixar. Com Pix, isso costuma levar poucos minutos.</p></details>
+      <details><summary>É um livro físico?</summary><p>Não. É um livro digital em PDF. Nada é enviado pelo correio.</p></details>
+      <details><summary>Consigo ler no celular?</summary><p>Sim. O PDF abre em qualquer celular, tablet ou computador, sem precisar de aplicativo especial.</p></details>
+      <details><summary>De onde vêm os dados?</summary><p>{{FAQ_2}}</p></details>
+      <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias para pedir o reembolso integral, sem precisar explicar o motivo.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b>{{CHANNEL_NAME}}</b><br>Um {{PRODUCT_TYPE}} do canal {{CHANNEL_NAME}}</div>
+    <div>Livro digital em PDF. Pagamento único.<br>© {{YEAR}} — Todos os direitos reservados<br><small>Este site usa cookies de análise do Google Analytics para contar visitas.</small></div>
+  </div>
+</footer>
+
+<div class="fixo" id="fixo">
+  <div class="p">R$ {{PRICE}}<small>+ BÔNUS GRÁTIS</small></div>
+  <a class="btn" href="#comprar">Comprar agora</a>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
