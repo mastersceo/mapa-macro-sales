@@ -1,9 +1,7 @@
 /**
- * main.js — Interatividade da página de vendas
- * Baseado no script de Brasil Avançado 2050, adaptado para template reutilizável.
- *
+ * main.js — Interatividade da página de vendas Mapa Macro
  * Funcionalidades:
- * 1. Link de checkout da Kiwify (substituir {{KIWIFY_CHECKOUT_URL}})
+ * 1. Link de checkout da Kiwify (substitua {{KIWIFY_CHECKOUT_URL}} no HTML)
  * 2. Carrossel de páginas (setas avançam uma figura por vez)
  * 3. Botão flutuante sticky (aparece quando o botão topo sai da tela e some quando a oferta entra)
  * 4. Eventos do Google Analytics (track cliques de compra)
@@ -12,13 +10,14 @@
 (function () {
   "use strict";
 
-  // 1. Checkout Kiwify — substitua pela URL da sua oferta
-  const CHECKOUT_URL = document.querySelector("[data-checkout]")?.href || "#";
-  document.querySelectorAll("#btn-comprar, [data-checkout]").forEach((b) => {
-    b.href = CHECKOUT_URL;
-    b.target = "_blank";
-    b.rel = "noopener";
-  });
+  // 1. Checkout Kiwify — o link já está no HTML no botão #btn-comprar
+  // Se quiser definir via JS, descomente e coloque seu link:
+  // const CHECKOUT_URL = "https://pay.kiwify.com.br/SEU_ID_AQUI";
+  // document.querySelectorAll("#btn-comprar, [data-checkout]").forEach((b) => {
+  //   b.href = CHECKOUT_URL;
+  //   b.target = "_blank";
+  //   b.rel = "noopener";
+  // });
 
   // 2. Carrossel de páginas
   initCarousel();
@@ -38,25 +37,22 @@
    * Carrossel: as setas avançam/recuam uma página (figure) por clique.
    */
   function initCarousel() {
-    const trilho = document.querySelector(".paginas");
-    const esq = document.querySelector(".seta-esq");
-    const dir = document.querySelector(".seta-dir");
+    const trilho = document.querySelector(".pages");
+    const esq = document.querySelector(".arrow-left");
+    const dir = document.querySelector(".arrow-right");
 
     if (!trilho || !esq || !dir) return;
 
-    // Largura de uma figura + gap
     const getStep = () => {
       const fig = trilho.querySelector("figure");
       if (!fig) return 0;
       const rect = fig.getBoundingClientRect();
-      // Inclui o gap (18px conforme CSS)
-      return rect.width + 18;
+      return rect.width + 24; // largura + gap
     };
 
     const updateArrows = () => {
       esq.disabled = trilho.scrollLeft <= 4;
-      dir.disabled =
-        trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+      dir.disabled = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
     };
 
     esq.addEventListener("click", () => {
@@ -75,7 +71,7 @@
    * e desaparece quando a seção de oferta ("#comprar") entra em vista.
    */
   function initFloatingButton() {
-    const fixo = document.getElementById("fixo");
+    const fixo = document.getElementById("sticky-bar");
     const btnTopo = document.getElementById("btn-topo");
     const secaoCompra = document.getElementById("comprar");
 
@@ -87,7 +83,6 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.target.id === "btn-topo") {
-          // O topo "passou" quando deixou de ser visível e está acima da tela
           visibilidade.passou = !e.isIntersecting && e.boundingClientRect.top < 0;
         } else {
           visibilidade.oferta = e.isIntersecting;
@@ -105,7 +100,6 @@
    * Envia:
    * - 'purchase_intent' quando clica em qualquer botão "Comprar"
    * - 'preview_view' quando chega na seção de pré-visualização
-   * - 'bonus_hover' quando passa o mouse no bônus
    */
   function initAnalytics() {
     // Track cliques em botões de compra
@@ -118,7 +112,7 @@
       const local =
         a.id === "btn-comprar"
           ? "oferta"
-          : a.closest("#fixo")
+          : a.closest("#sticky-bar")
             ? "sticky"
             : a.id === "btn-topo"
               ? "hero"
@@ -135,7 +129,7 @@
           entries.forEach((e) => {
             if (e.isIntersecting) {
               gtag("event", "preview_view");
-              obs.unobserve(previewSection); // Só registra uma vez
+              obs.unobserve(previewSection);
             }
           });
         },
